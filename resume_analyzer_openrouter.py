@@ -10,6 +10,7 @@ st.markdown("Upload your resume PDF and get instant feedback powered by LLaMA 3.
 
 # --- User Inputs ---
 api_key = st.secrets["OPENROUTER_API_KEY"]
+st.write("🔐 API Key Present:", "OPENROUTER_API_KEY" in st.secrets)
 job_role = st.text_input("🎯 Target Job Role (optional)", placeholder="e.g., Data Analyst, Web Developer")
 is_fresher = st.checkbox("🧑‍🎓 I am a fresher (0 work experience)")
 uploaded_file = st.file_uploader("📎 Upload your Resume (PDF only)", type="pdf")
