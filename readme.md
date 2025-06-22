@@ -1,6 +1,10 @@
-    # 📄 Resume Analyzer (GenAI + OpenRouter)
+# 📄 Resume Analyzer (GenAI Project)
 
-This is a GenAI-powered resume analysis tool that uses **LLaMA 3 via OpenRouter** to provide instant, structured feedback on uploaded resumes. Built with Streamlit, it helps job seekers improve their resumes for specific roles — especially useful for students, freshers, and early-career professionals.
+A Streamlit web app that analyzes resume PDFs using LLaMA 3 via OpenRouter, providing feedback, ATS scoring, and suggestions for improvement.
+
+🔗 **Live App**: [https://resumeanalyzero.streamlit.app/](https://resumeanalyzero.streamlit.app/)
+
+🧠 Powered by: OpenRouter (LLaMA 3), Streamlit, PyPDF2
 
 ---
 
