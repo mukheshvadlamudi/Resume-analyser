@@ -67,10 +67,11 @@ Summarize in 1–2 sentences the top things the applicant should improve or keep
 # --- OpenRouter call ---
 def analyze_resume(prompt, api_key):
     headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://chat.openrouter.ai"
+    "Authorization": f"Bearer {api_key}",
+    "Content-Type": "application/json",
+    "HTTP-Referer": "https://resumeanalyzero.streamlit.app/"
     }
+
 
     payload = {
         "model": MODEL,
