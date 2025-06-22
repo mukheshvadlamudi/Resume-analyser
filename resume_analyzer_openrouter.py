@@ -9,7 +9,7 @@ st.title("📄 Resume Analyzer (LLM - OpenRouter)")
 st.markdown("Upload your resume PDF and get instant feedback powered by LLaMA 3.\n\n💡 *For best results, enter your OpenRouter API key below.*")
 
 # --- User Inputs ---
-api_key = "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"
+api_key = st.secrets["OPENROUTER_API_KEY"]
 job_role = st.text_input("🎯 Target Job Role (optional)", placeholder="e.g., Data Analyst, Web Developer")
 is_fresher = st.checkbox("🧑‍🎓 I am a fresher (0 work experience)")
 uploaded_file = st.file_uploader("📎 Upload your Resume (PDF only)", type="pdf")
