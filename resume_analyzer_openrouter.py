@@ -61,6 +61,7 @@ Give a 1–2 sentence wrap-up of the most important thing the candidate should i
         prompt += "\n\nNote: The candidate is a fresher. Focus on skills, projects, academics — not work experience."
 
     prompt += f"\n\n---\nResume Content:\n{text}"
+    return prompt.strip()
 
 # --- OpenRouter call ---
 def analyze_resume(prompt, api_key):
