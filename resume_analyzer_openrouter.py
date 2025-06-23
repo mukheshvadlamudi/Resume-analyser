@@ -76,6 +76,7 @@ def analyze_resume(prompt, api_key):
         "model": MODEL,
         "messages": [{"role": "user", "content": prompt}],
         "max_tokens": MAX_TOKENS
+        "temperature": 0  
     }
 
     response = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=payload)
