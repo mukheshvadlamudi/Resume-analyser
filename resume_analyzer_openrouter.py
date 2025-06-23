@@ -32,37 +32,36 @@ def extract_text_from_pdf(uploaded_file):
 # --- Build the prompt ---
 def build_prompt(text, job_role, is_fresher):
     prompt = f"""
-You are an AI resume reviewer integrated into a GenAI-based resume feedback app.
+You are an AI resume reviewer integrated into a GenAI-based resume analysis platform.
 
-Your job is to read the following resume text and provide detailed, structured feedback that helps job seekers improve their resume quality and relevance.
+Your task is to evaluate a candidate's resume and provide clear, structured feedback to help improve their chances of passing Applicant Tracking Systems (ATS) and impressing recruiters.
 
-Please use this output format:
+Use the following format in your response:
 
 ### ✅ Strengths
-- Bullet point strengths of this resume
+- Clearly state 2–4 standout points about the resume
 
 ### ⚠️ Weaknesses
-- Bullet point issues (clarity, formatting, missing info)
+- List 2–4 areas that need improvement (content, formatting, clarity, etc.)
 
 ### 🛠️ Suggestions for Improvement
-- Specific, actionable advice
+- Give actionable suggestions to enhance the resume’s quality
 
 ### 📊 ATS Score
 **Score:** /100  
-*Based on keyword relevance, formatting, role alignment, and content completeness.*
+*Short explanation (1–2 lines) of how the score was determined, based on keyword usage, role alignment, formatting, and relevance.*
 
 ### 🔁 Final Summary
-Summarize in 1–2 sentences the top things the applicant should improve or keep doing well.
-
+Give a 1–2 sentence wrap-up of the most important thing the candidate should improve or continue doing.
 """
-    if job_role:
-        prompt += f"\nThis resume is intended for the role of **{job_role}**."
 
-    if is_fresher:
-        prompt += "\nNote: The applicant is a fresher. Focus on academic achievements, projects, certifications, and relevant skills instead of work experience."
+if job_role:
+    prompt += f"\n\nThis resume is intended for the role of **{job_role}**. Tailor your feedback accordingly."
 
-    prompt += f"\n\n---\n\nResume:\n{text}"
-    return prompt.strip()
+if is_fresher:
+    prompt += "\n\nNote: The candidate is a fresher. Focus on skills, projects, academics — not work experience."
+
+prompt += f"\n\n---\nResume Content:\n{resume_text}"
 
 # --- OpenRouter call ---
 def analyze_resume(prompt, api_key):
