@@ -75,7 +75,7 @@ def analyze_resume(prompt, api_key):
     payload = {
         "model": MODEL,
         "messages": [{"role": "user", "content": prompt}],
-        "max_tokens": MAX_TOKENS
+        "max_tokens": MAX_TOKENS,
         "temperature": 0  
     }
 
