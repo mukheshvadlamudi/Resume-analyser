@@ -54,13 +54,13 @@ Use the following format in your response:
 Give a 1–2 sentence wrap-up of the most important thing the candidate should improve or continue doing.
 """
 
-if job_role:
-    prompt += f"\n\nThis resume is intended for the role of **{job_role}**. Tailor your feedback accordingly."
+    if job_role:
+        prompt += f"\n\nThis resume is intended for the role of **{job_role}**. Tailor your feedback accordingly."
 
-if is_fresher:
-    prompt += "\n\nNote: The candidate is a fresher. Focus on skills, projects, academics — not work experience."
+    if is_fresher:
+        prompt += "\n\nNote: The candidate is a fresher. Focus on skills, projects, academics — not work experience."
 
-prompt += f"\n\n---\nResume Content:\n{resume_text}"
+    prompt += f"\n\n---\nResume Content:\n{text}"
 
 # --- OpenRouter call ---
 def analyze_resume(prompt, api_key):
