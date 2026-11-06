@@ -1,8 +1,20 @@
+<div align="center">
+
 # Resume Analyzer
 
-A small Streamlit application that reads a resume PDF and requests structured feedback from an OpenRouter-hosted language model. Add a target role or select fresher mode to tailor the review.
+**Practical resume feedback, tailored to a role.**
 
-**Status:** educational prototype. Its “ATS score” is generated feedback, not a measurement from an applicant tracking system.
+Upload a PDF, add context, and review strengths and improvements in one place.
+
+[Quick start](#quick-start) · [Configuration](#configuration) · [How it works](#how-it-works) · [Contributing](#contributing)
+
+</div>
+
+![Resume Analyzer workflow: extract PDF text, request a role-aware review through OpenRouter, and read structured feedback](docs/assets/overview.svg)
+
+A focused Streamlit app that extracts resume text with PyPDF2 and requests structured feedback through OpenRouter. Add a target job role or select fresher mode to tailor the review.
+
+**Project status:** educational prototype. The “ATS score” is generated feedback, not a measurement from an applicant tracking system.
 
 ## Features
 
@@ -53,9 +65,12 @@ The model identifier is hardcoded. If OpenRouter reports that it is unavailable,
 
 ## How it works
 
-```text
-PDF upload → PyPDF2 text extraction → role-aware prompt → OpenRouter → Markdown feedback
-```
+1. PyPDF2 extracts readable text from the uploaded PDF.
+2. The app builds a prompt using that text, the optional target role, and fresher mode.
+3. OpenRouter returns model-generated strengths, weaknesses, suggestions, and a score.
+4. Streamlit displays the response as Markdown for the user to review.
+
+This app calls OpenRouter directly from the Streamlit Python process. There is no separate API server, document database, or retrieval layer.
 
 All application logic is in [resume_analyzer_openrouter.py](resume_analyzer_openrouter.py); dependencies are in [requirements.txt](requirements.txt).
 
